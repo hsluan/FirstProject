@@ -3,18 +3,18 @@
 
 #include "cocos2d.h"
 
+class Vehicle;
+
 class Racing : public cocos2d::Layer
 {
+	Vehicle* _hero;
 public:
-    static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene();
 
-    virtual bool init();
-    
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    // implement the "static create()" method manually
-    CREATE_FUNC(Racing);
+	virtual bool init();
+	virtual void update(float dt);
+
+	CREATE_FUNC(Racing);
 };
 
 #endif // __RACING_SCENE_H__
