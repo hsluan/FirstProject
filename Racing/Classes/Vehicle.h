@@ -24,8 +24,8 @@ class Vehicle : public cocos2d::Sprite
 	cocos2d::Vec2 _vel;
 	std::string _stFilePath;
 public:
-	static Vehicle* create(TypeVehicle type, cocos2d::Vec2 pos);
-	bool init(TypeVehicle type, cocos2d::Vec2 pos);
+	static Vehicle* create(TypeVehicle type, const cocos2d::Vec2& pos);
+	bool init(TypeVehicle type, const cocos2d::Vec2& pos);
 	virtual void update(float dt);
 
 };

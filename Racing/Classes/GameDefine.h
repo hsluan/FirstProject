@@ -13,4 +13,10 @@
 #define IMG_MOTORCYCLES_RED			"Motorcycles/motorcycle_red.png"
 #define IMG_MOTORCYCLES_YELLOW		"Motorcycles/motorcycle_yellow.png"
 
+#define IMG_SERIAL_ROAD_ALPHA		"Tiles/AsphaltRoad/road_asphalt%02d.png"
+#define IMG_SERIAL_ROAD_DIRT		"Tiles/DirtRoad/road_dirt%02d.png"
+#define IMG_SERIAL_ROAD_SAND		"Tiles/SandRoad/road_sand%02d.png"
+
+#define SET_MIN_MAX(min, var, max)		if( var <= min ) {var = min;} else if( var >= max ) {var = max;}
+
 #endif // __GAME_DEFINE_H_

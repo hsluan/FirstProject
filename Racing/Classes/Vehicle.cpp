@@ -3,7 +3,7 @@
 
 USING_NS_CC;
 
-Vehicle* Vehicle::create( TypeVehicle type, Vec2 pos )
+Vehicle* Vehicle::create( TypeVehicle type, const Vec2& pos )
 {
 	Vehicle* pRet = new(std::nothrow) Vehicle;
 	if (pRet && pRet->init(type, pos))
@@ -15,7 +15,7 @@ Vehicle* Vehicle::create( TypeVehicle type, Vec2 pos )
 	return nullptr;
 }
 
-bool Vehicle::init( TypeVehicle type, Vec2 pos)
+bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 {
 	//init value
 	_vel = Vec2::ZERO;
