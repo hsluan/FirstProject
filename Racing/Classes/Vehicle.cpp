@@ -51,7 +51,7 @@ bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 void Vehicle::update(float dt)
 {
 	auto posCurrent		= getPosition();
-	float fCurrentAngle = getRotation();
+	//float fCurrentAngle = getRotation();
 
 	//if (_targetAngle != fCurrentAngle )
 	//{

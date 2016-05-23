@@ -52,6 +52,7 @@ bool Racing::init()
 	this->scheduleUpdate();
     return true;
 }
+	
 
 void Racing::createRoads()
 {		
@@ -66,7 +67,7 @@ void Racing::createRoads()
 
 	for (int i = 0; i < NUM_ROAD_FULL_SCREEN-1; i++)
 	{		
-		posRoad.y += _sizeTilesRoad.height;
+		posRoad.y += (_sizeTilesRoad.height-2);
 		auto road = Road::create(TypeRoad::Alpha, false, posRoad);
 		road->setAnchorPoint(Vec2(0.5f, 0.5f));
 		addChild(road, 1);
@@ -85,7 +86,6 @@ bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 	auto location	= touch->getLocation();
 	Vec2 vectorFromHeroToTouch = _hero->getPosition() - location;
 	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	log("%f", fAngle);
 	_hero->setRotation(fAngle);//setTargetAngle(fAngle);
 	return true;
 }
@@ -95,7 +95,6 @@ void Racing::onTouchMoved(Touch *touch, Event *unused_event)
 	auto location = touch->getLocation();
 	Vec2 vectorFromHeroToTouch = _hero->getPosition() - location;
 	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	log("%f", fAngle);
 	_hero->setRotation(fAngle);
 }
 
@@ -107,7 +106,6 @@ void Racing::onTouchEnded(Touch *touch, Event *unused_event)
 void Racing::onAcceleration(Acceleration* acc, Event* event)
 {
 	SET_MIN_MAX(-1, acc->x, 1);
-	log("%d", acc->x);
 }
 
 
@@ -122,10 +120,10 @@ void Racing::updateRoads(float dt)
 {
 	for (auto p : _roads)
 	{
-		if (0 > p->getPositionY() + (int)(_sizeTilesRoad.height*0.5f ) )
+		p->setPositionY(p->getPositionY() - VELOCITY_CAR*dt);
+		if (0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
 		{
-			p->setPositionY(_fYHightest-20);
-		}
-		p->setPositionY(p->getPositionY() - VELOCITY_CAR * dt);		
+			p->setPositionY(_fYHightest-2);
+		}		
 	}	
 }
