@@ -60,7 +60,7 @@ void Racing::createRoads()
 	_sizeTilesRoad = spriteTemp->getContentSize();
 	Vec2 posRoad = Vec2(_sizeScreen.width*0.5f, _sizeTilesRoad.height*0.5f);
 	
-	auto road = Road::create(TypeRoad::Alpha, true, posRoad);
+	auto road = Road::create(TypeRoad::Asphalt, true, posRoad);
 	road->setAnchorPoint(Vec2(0.5f, 0.5f));
 	addChild(road, 2);
 	_roads.push_back(road);
@@ -68,7 +68,7 @@ void Racing::createRoads()
 	for (int i = 0; i < NUM_ROAD_FULL_SCREEN-1; i++)
 	{		
 		posRoad.y += (_sizeTilesRoad.height- PIXEL_FIX);
-		auto road = Road::create(TypeRoad::Alpha, false, posRoad);
+		auto road = Road::create(TypeRoad::Asphalt, false, posRoad);
 		road->setAnchorPoint(Vec2(0.5f, 0.5f));
 		addChild(road, 1);
 		_roads.push_back(road);

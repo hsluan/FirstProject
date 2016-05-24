@@ -50,7 +50,7 @@ bool Road::init()
 
 	switch (_type)
 	{
-	case TypeRoad::Alpha: _stFilePath = IMG_SERIAL_ROAD_ALPHA; break;
+	case TypeRoad::Asphalt: _stFilePath = IMG_SERIAL_ROAD_ALPHA; break;
 	case TypeRoad::Dirt: _stFilePath = IMG_SERIAL_ROAD_DIRT; break;
 	default: _stFilePath = IMG_SERIAL_ROAD_SAND; break; //Sand road	
 	}
