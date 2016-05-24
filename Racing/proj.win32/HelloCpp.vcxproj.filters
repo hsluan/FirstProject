@@ -10,6 +10,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameObjects">
+      <UniqueIdentifier>{31e1d845-ebc3-48e4-9833-f96ffe25f3e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes">
+      <UniqueIdentifier>{1b54a0d7-6585-4b8f-b415-1ba7b16c9d4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,14 +24,14 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\RacingScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\GameObjects\Road.cpp">
+      <Filter>src\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Vehicle.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\GameObjects\Vehicle.cpp">
+      <Filter>src\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Road.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Scenes\RacingScene.cpp">
+      <Filter>src\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,20 +41,20 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\RacingScene.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Vehicle.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\GameDefine.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\const.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Road.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\GameObjects\Road.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObjects\Vehicle.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\RacingScene.h">
+      <Filter>src\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
