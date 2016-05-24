@@ -12,7 +12,7 @@ enum class TypeLane
 
 enum class TypeRoad
 {
-	Alpha = 0,
+	Asphalt = 0,
 	Dirt,
 	Sand
 };
