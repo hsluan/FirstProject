@@ -13,5 +13,6 @@
 #define NUM_FOURTH_ROADS					23
 #define NUM_ROAD_FULL_SCREEN				12
 #define VELOCITY_CAR						100
+#define TURN_RATE							3 //degree/frame
 
 #endif // __CONST_H_
