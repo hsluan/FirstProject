@@ -84,7 +84,7 @@ void Racing::createUI()
 bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 {
 	auto location	= touch->getLocation();
-	Vec2 vectorFromHeroToTouch = _hero->getPosition() - location;
+	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
 	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
 	_hero->setRotation(fAngle);//setTargetAngle(fAngle);
 	return true;
@@ -93,7 +93,7 @@ bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 void Racing::onTouchMoved(Touch *touch, Event *unused_event)
 {
 	auto location = touch->getLocation();
-	Vec2 vectorFromHeroToTouch = _hero->getPosition() - location;
+	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
 	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
 	_hero->setRotation(fAngle);
 }
