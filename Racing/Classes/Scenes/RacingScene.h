@@ -25,7 +25,7 @@ public:
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
-	//virtual void onTouchCancelled(Touch *touch, Event *unused_event);
+	virtual void onTouchCancelled(Touch *touch, Event *unused_event);
 	virtual void onAcceleration(cocos2d::Acceleration* acc, cocos2d::Event* event);
 	
 //#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)

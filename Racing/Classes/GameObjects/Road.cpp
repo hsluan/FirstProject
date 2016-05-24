@@ -17,6 +17,7 @@ Road::Road(TypeRoad type, bool isBegin, const cocos2d::Vec2& pos)
 	_fourthLane = NULL;
 	_isBegin	= isBegin;
 	_type		= type;
+	_lane		= TypeLane::Straight;
 	_posBegin	= pos;
 }
 
@@ -89,8 +90,10 @@ bool Road::init()
 	return true;
 }
 
-void Road::changeSpriteFrame(std::string fileName)
+void Road::changeSpriteFrame(int indexImage)
 {	
+	std::string temp = __String::createWithFormat(_stFilePath.c_str(), indexImage)->getCString();
+	
 }
 
 void Road::update(float dt)
