@@ -67,7 +67,7 @@ void Racing::createRoads()
 
 	for (int i = 0; i < NUM_ROAD_FULL_SCREEN-1; i++)
 	{		
-		posRoad.y += (_sizeTilesRoad.height-2);
+		posRoad.y += (_sizeTilesRoad.height- PIXEL_FIX);
 		auto road = Road::create(TypeRoad::Alpha, false, posRoad);
 		road->setAnchorPoint(Vec2(0.5f, 0.5f));
 		addChild(road, 1);
@@ -123,7 +123,7 @@ void Racing::updateRoads(float dt)
 		p->setPositionY(p->getPositionY() - VELOCITY_CAR*dt);
 		if (0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
 		{
-			p->setPositionY(_fYHightest-2);
+			p->setPositionY(_fYHightest- PIXEL_FIX);
 		}		
 	}	
 }
