@@ -1,5 +1,6 @@
 #include "Vehicle.h"
 #include "GameDefine.h"
+#include "const.h"
 
 USING_NS_CC;
 
@@ -18,8 +19,10 @@ Vehicle* Vehicle::create( TypeVehicle type, const Vec2& pos )
 bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 {
 	//init value
-	_vel = Vec2::ZERO;
-	
+	_vel			= Vec2::ZERO;
+	_targetAngle	= 0.f;
+	_type			= type;
+
 	switch (type)
 	{	
 	case TypeVehicle::BlackMotors: _stFilePath = IMG_MOTORCYCLES_BLACK; break;
@@ -45,9 +48,32 @@ bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 	return true;
 }
 
-void Vehicle::update(float dt) 
+void Vehicle::update(float dt)
 {
-	auto posCurrent = getPosition();
-	posCurrent.y += dt;
+	auto posCurrent		= getPosition();
+	//float fCurrentAngle = getRotation();
+
+	//if (_targetAngle != fCurrentAngle )
+	//{
+
+	//	float delta = _targetAngle - fCurrentAngle;
+
+	//	//Limit range from -180 to 180  degree
+	//	if (180 <= delta)
+	//		delta -= 360;
+	//	else if (-180 > delta)
+	//		delta += 360;
+	//	fCurrentAngle += delta;
+	//	/*if ( 0 < delta )
+	//		fCurrentAngle += TURN_RATE;
+	//	else
+	//		fCurrentAngle -= TURN_RATE;
+
+	//	if ( TURN_RATE > abs(delta))
+	//	{			
+	//		fCurrentAngle = _targetAngle;
+	//	}*/
+	//}
+	//this->setRotation(_targetAngle);
 	this->setPosition(posCurrent);
 }

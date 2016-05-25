@@ -17,6 +17,7 @@ Road::Road(TypeRoad type, bool isBegin, const cocos2d::Vec2& pos)
 	_fourthLane = NULL;
 	_isBegin	= isBegin;
 	_type		= type;
+	_lane		= TypeLane::Straight;
 	_posBegin	= pos;
 }
 
@@ -50,7 +51,7 @@ bool Road::init()
 
 	switch (_type)
 	{
-	case TypeRoad::Alpha: _stFilePath = IMG_SERIAL_ROAD_ALPHA; break;
+	case TypeRoad::Asphalt: _stFilePath = IMG_SERIAL_ROAD_ALPHA; break;
 	case TypeRoad::Dirt: _stFilePath = IMG_SERIAL_ROAD_DIRT; break;
 	default: _stFilePath = IMG_SERIAL_ROAD_SAND; break; //Sand road	
 	}
@@ -89,8 +90,10 @@ bool Road::init()
 	return true;
 }
 
-void Road::changeSpriteFrame(std::string fileName)
+void Road::changeSpriteFrame(int indexImage)
 {	
+	std::string temp = __String::createWithFormat(_stFilePath.c_str(), indexImage)->getCString();
+	
 }
 
 void Road::update(float dt)

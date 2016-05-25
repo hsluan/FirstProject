@@ -6,6 +6,11 @@
 
 USING_NS_CC;
 
+#define NUM_ROAD_FULL_SCREEN				12
+#define VELOCITY_CAR						100
+#define TURN_RATE							3 //degree/frame
+#define PIXEL_FIX							2
+
 Scene* Racing::createScene()
 {
     // 'scene' is an autorelease object
@@ -24,19 +29,10 @@ Scene* Racing::createScene()
 bool Racing::init()
 {
 	_hero		= nullptr;
-
 	_fYHightest = 0.f;
 	_fYLowest	= 0.f;
 
 	//Register event
-
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-//	auto listenerKey = EventListenerKeyboard::create();
-//	listenerKey->onKeyPressed = CC_CALLBACK_2(Racing::onKeyPressed, this);
-//	listenerKey->onKeyReleased = CC_CALLBACK_2(Racing::onKeyReleased, this);
-//	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKey, this);
-//#endif
-
 	Device::setAccelerometerEnabled(true);
 	setTouchEnabled(true);
 
@@ -61,25 +57,25 @@ bool Racing::init()
 	this->scheduleUpdate();
     return true;
 }
+	
 
 void Racing::createRoads()
 {		
 	auto spriteTemp = Sprite::create("Tiles/DirtRoad/road_dirt01.png");
 	_sizeTilesRoad = spriteTemp->getContentSize();
-	Vec2 posRoad = Vec2(_sizeScreen.width*0.5f, (int)_sizeTilesRoad.height*0.5f);
+	Vec2 posRoad = Vec2(_sizeScreen.width*0.5f, _sizeTilesRoad.height*0.5f);
 	
-
-	auto road = Road::create(TypeRoad::Alpha, true, posRoad);
+	auto road = Road::create(TypeRoad::Asphalt, true, posRoad);
 	road->setAnchorPoint(Vec2(0.5f, 0.5f));
 	addChild(road, 2);
 	_roads.push_back(road);
 
 	for (int i = 0; i < NUM_ROAD_FULL_SCREEN-1; i++)
 	{		
-		posRoad.y += (int)_sizeTilesRoad.height;
-		auto road = Road::create(TypeRoad::Alpha, false, posRoad);
+		posRoad.y += (_sizeTilesRoad.height- PIXEL_FIX);
+		auto road = Road::create(TypeRoad::Asphalt, false, posRoad);
 		road->setAnchorPoint(Vec2(0.5f, 0.5f));
-		addChild(road, 2);
+		addChild(road, 1);
 		_roads.push_back(road);
 	}
 	_fYHightest = (int)posRoad.y;
@@ -92,12 +88,19 @@ void Racing::createUI()
 
 bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 {
+	auto location	= touch->getLocation();
+	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
+	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
+	_hero->setRotation(fAngle);//setTargetAngle(fAngle);
 	return true;
 }
 
 void Racing::onTouchMoved(Touch *touch, Event *unused_event)
 {
-
+	auto location = touch->getLocation();
+	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
+	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
+	_hero->setRotation(fAngle);
 }
 
 void Racing::onTouchEnded(Touch *touch, Event *unused_event)
@@ -105,37 +108,14 @@ void Racing::onTouchEnded(Touch *touch, Event *unused_event)
 
 }
 
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-//void Racing::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
-//{
-//	static Acceleration* acc = nullptr;
-//	
-//	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
-//	{
-//		acc->x -= 0.1f;
-//	}
-//	else if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
-//	{
-//		acc->x += 0.1f;
-//	}
-//	else 
-//	{
-//		acc->x = 0;
-//	}
-//	SET_MIN_MAX(-1, acc->x, 1);
-//	onAcceleration(acc, nullptr);
-//}
-//
-//void Racing::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
-//{
-//	log("Key with keycode %d released", keyCode);
-//}
-//#endif
+void Racing::onTouchCancelled(Touch *touch, Event *unused_event)
+{
+	onTouchMoved(touch, unused_event);
+}
 
 void Racing::onAcceleration(Acceleration* acc, Event* event)
 {
 	SET_MIN_MAX(-1, acc->x, 1);
-	log("%d", acc->x);
 }
 
 
@@ -144,17 +124,20 @@ void Racing::update(float dt)
 	_hero->update(dt);
 
 	updateRoads(dt);
-
 }
 
 void Racing::updateRoads(float dt)
 {
 	for (auto p : _roads)
 	{
-		p->setPositionY(p->getPositionY() - VELOCITY_CAR * dt);
-		if ( 0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
+		p->setPositionY(p->getPositionY() - VELOCITY_CAR*dt);
+		if (0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
 		{
-			p->setPositionY(_fYHightest);
-		}
+			p->setPositionY(_fYHightest- PIXEL_FIX);
+			if (p->getIsBegin())
+			{
+				p->setIsBegin(false);
+			}
+		}		
 	}	
 }
