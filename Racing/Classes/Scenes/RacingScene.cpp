@@ -1,15 +1,16 @@
 #include "RacingScene.h"
 #include "Vehicle.h"
 #include "const.h"
-#include "Road.h"
+#include "RoadSegment.h"
+#include "CCamera.h"
 #include "GameDefine.h"
 
 USING_NS_CC;
 
-#define NUM_ROAD_FULL_SCREEN				12
+
 #define VELOCITY_CAR						100
 #define TURN_RATE							3 //degree/frame
-#define PIXEL_FIX							2
+
 
 Scene* Racing::createScene()
 {
@@ -28,9 +29,7 @@ Scene* Racing::createScene()
 
 bool Racing::init()
 {
-	_hero		= nullptr;
-	_fYHightest = 0.f;
-	_fYLowest	= 0.f;
+	m_fYLowest	= 0.f;
 
 	//Register event
 	Device::setAccelerometerEnabled(true);
@@ -46,40 +45,15 @@ bool Racing::init()
 	listenerTouch->setSwallowTouches(true);	
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerTouch, this);
 
-	_sizeScreen = Director::getInstance()->getVisibleSize();
-	
-	_hero = Vehicle::create(TypeVehicle::BlackCar, Vec2(_sizeScreen.width*0.5f, 0));
-	_hero->setPositionY(_hero->getContentSize().height*0.5f);
-	addChild(_hero, 3);
+	m_pCCamera = CCamera::create();
+	addChild(m_pCCamera, 3);
 
-	createRoads();
+	m_sizeScreen = Director::getInstance()->getVisibleSize();
 
 	this->scheduleUpdate();
     return true;
 }
 	
-
-void Racing::createRoads()
-{		
-	auto spriteTemp = Sprite::create("Tiles/DirtRoad/road_dirt01.png");
-	_sizeTilesRoad = spriteTemp->getContentSize();
-	Vec2 posRoad = Vec2(_sizeScreen.width*0.5f, _sizeTilesRoad.height*0.5f);
-	
-	auto road = Road::create(TypeRoad::Asphalt, true, posRoad);
-	road->setAnchorPoint(Vec2(0.5f, 0.5f));
-	addChild(road, 2);
-	_roads.push_back(road);
-
-	for (int i = 0; i < NUM_ROAD_FULL_SCREEN-1; i++)
-	{		
-		posRoad.y += (_sizeTilesRoad.height- PIXEL_FIX);
-		auto road = Road::create(TypeRoad::Asphalt, false, posRoad);
-		road->setAnchorPoint(Vec2(0.5f, 0.5f));
-		addChild(road, 1);
-		_roads.push_back(road);
-	}
-	_fYHightest = (int)posRoad.y;
-}
 
 void Racing::createUI()
 {
@@ -88,19 +62,19 @@ void Racing::createUI()
 
 bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 {
-	auto location	= touch->getLocation();
-	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
-	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	_hero->setRotation(fAngle);//setTargetAngle(fAngle);
+	//auto location	= touch->getLocation();
+	//Vec2 vectorFromHeroToTouch = location - m_hero->getPosition();
+	//float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
+	//m_hero->setRotation(fAngle);//setTargetAngle(fAngle);
 	return true;
 }
 
 void Racing::onTouchMoved(Touch *touch, Event *unused_event)
 {
-	auto location = touch->getLocation();
-	Vec2 vectorFromHeroToTouch = location - _hero->getPosition();
+	/*auto location = touch->getLocation();
+	Vec2 vectorFromHeroToTouch = location - m_hero->getPosition();
 	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	_hero->setRotation(fAngle);
+	m_hero->setRotation(fAngle);*/
 }
 
 void Racing::onTouchEnded(Touch *touch, Event *unused_event)
@@ -121,23 +95,10 @@ void Racing::onAcceleration(Acceleration* acc, Event* event)
 
 void Racing::update(float dt)
 {
-	_hero->update(dt);
 
-	updateRoads(dt);
 }
 
 void Racing::updateRoads(float dt)
-{
-	for (auto p : _roads)
-	{
-		p->setPositionY(p->getPositionY() - VELOCITY_CAR*dt);
-		if (0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
-		{
-			p->setPositionY(_fYHightest- PIXEL_FIX);
-			if (p->getIsBegin())
-			{
-				p->setIsBegin(false);
-			}
-		}		
-	}	
+{		
+
 }
