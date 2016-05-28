@@ -1,41 +1,24 @@
-#ifndef __ROAD_H_
-#define __ROAD_H_
+#ifndef _ROAD_H_
+#define _ROAD_H_
 
 #include "cocos2d.h"
 
-enum class TypeLane
-{
-	Straight=0,
-	Cross,
-	Bend
-};
+class Vehicle;
+class RoadSegment;
 
-enum class TypeRoad
+class Road: public cocos2d::Node
 {
-	Asphalt = 0,
-	Dirt,
-	Sand
-};
+	float m_fYHightest;
 
-class Road : public cocos2d::Node
-{
-	std::string _stFilePath;
-	cocos2d::Sprite* _firstLane;
-	cocos2d::Sprite* _secondLane;
-	cocos2d::Sprite* _thirdLane;
-	cocos2d::Sprite* _fourthLane;
-
-	CC_SYNTHESIZE(cocos2d::Vec2, _posBegin, PosBegin);
-	CC_SYNTHESIZE(bool, _isBegin, IsBegin);
-	CC_SYNTHESIZE(TypeRoad, _type, Type);
-	CC_SYNTHESIZE(TypeLane, _lane, Lane);
-public:
-	Road(TypeRoad type, bool isBegin, const cocos2d::Vec2& pos);
+	Vehicle* m_hero;
+	std::vector<RoadSegment* > m_roads;
+	CC_SYNTHESIZE(cocos2d::Size, m_sizeRoadSegment, SizeRoadSegment);
+	Road();
 	~Road();
-	static Road* create(TypeRoad type, bool isBegin, const cocos2d::Vec2& pos);
-	bool init();	
-	void changeSpriteFrame(int indexImage);
+public:		
+	static Road* create();
+	virtual bool init();
 	virtual void update(float dt);
 };
 
-#endif //__ROAD_H_
+#endif //_ROAD_H_

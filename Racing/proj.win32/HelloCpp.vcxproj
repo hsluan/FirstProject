@@ -146,7 +146,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\GameObjects\CCamera.cpp" />
     <ClCompile Include="..\Classes\GameObjects\Road.cpp" />
+    <ClCompile Include="..\Classes\GameObjects\RoadSegment.cpp" />
     <ClCompile Include="..\Classes\GameObjects\Vehicle.cpp" />
     <ClCompile Include="..\Classes\Scenes\RacingScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,7 +157,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\const.h" />
     <ClInclude Include="..\Classes\GameDefine.h" />
+    <ClInclude Include="..\Classes\GameObjects\CCamera.h" />
     <ClInclude Include="..\Classes\GameObjects\Road.h" />
+    <ClInclude Include="..\Classes\GameObjects\RoadSegment.h" />
     <ClInclude Include="..\Classes\GameObjects\Vehicle.h" />
     <ClInclude Include="..\Classes\Scenes\RacingScene.h" />
     <ClInclude Include="main.h" />

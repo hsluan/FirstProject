@@ -3,20 +3,18 @@
 
 #include "cocos2d.h"
 
-class Vehicle;
-class Road;
+class CCamera;
+
 class Racing : public cocos2d::Layer
 {
-	cocos2d::Size _sizeTilesRoad;
-	cocos2d::Size _sizeScreen;
-	Vehicle* _hero;
-	std::vector<Road*> _roads;
-	float _fYHightest;
-	float _fYLowest;		
+	cocos2d::Size m_sizeTilesRoad;
+	cocos2d::Size m_sizeScreen;
+
+	float m_fYLowest;		
+	CCamera* m_pCCamera;
 public:
 	static cocos2d::Scene* createScene();
 
-	void createRoads();
 	void createUI();
 	void updateRoads(float dt);
 

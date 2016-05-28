@@ -19,30 +19,30 @@ Vehicle* Vehicle::create( TypeVehicle type, const Vec2& pos )
 bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 {
 	//init value
-	_vel			= Vec2::ZERO;
-	_targetAngle	= 0.f;
-	_type			= type;
+	m_vel			= Vec2::ZERO;
+	m_type			= type;
+	m_Acc			= Vec2::ZERO;
 
 	switch (type)
 	{	
-	case TypeVehicle::BlackMotors: _stFilePath = IMG_MOTORCYCLES_BLACK; break;
-	case TypeVehicle::BlueMotors: _stFilePath = IMG_MOTORCYCLES_BLUE; break;
-	case TypeVehicle::GreenMotors: _stFilePath = IMG_MOTORCYCLES_GREEN; break;
-	case TypeVehicle::RedMotors: _stFilePath = IMG_MOTORCYCLES_RED; break;
-	case TypeVehicle::YellowMotors: _stFilePath = IMG_MOTORCYCLES_YELLOW; break;
-	case TypeVehicle::BlackCar: _stFilePath = IMG_SERIAL_CAR_BLACK; break;
-	case TypeVehicle::BlueCar: _stFilePath = IMG_SERIAL_CAR_BLUE; break;
-	case TypeVehicle::GreenCar: _stFilePath = IMG_SERIAL_CAR_GREEN; break;
-	case TypeVehicle::RedCar: _stFilePath = IMG_SERIAL_CAR_RED; break;
-	default: _stFilePath = IMG_SERIAL_CAR_YELLOW; break; //Yellow cars
+	case TypeVehicle::BlackMotors: m_tFilePath = IMG_MOTORCYCLES_BLACK; break;
+	case TypeVehicle::BlueMotors: m_tFilePath = IMG_MOTORCYCLES_BLUE; break;
+	case TypeVehicle::GreenMotors: m_tFilePath = IMG_MOTORCYCLES_GREEN; break;
+	case TypeVehicle::RedMotors: m_tFilePath = IMG_MOTORCYCLES_RED; break;
+	case TypeVehicle::YellowMotors: m_tFilePath = IMG_MOTORCYCLES_YELLOW; break;
+	case TypeVehicle::BlackCar: m_tFilePath = IMG_SERIAL_CAR_BLACK; break;
+	case TypeVehicle::BlueCar: m_tFilePath = IMG_SERIAL_CAR_BLUE; break;
+	case TypeVehicle::GreenCar: m_tFilePath = IMG_SERIAL_CAR_GREEN; break;
+	case TypeVehicle::RedCar: m_tFilePath = IMG_SERIAL_CAR_RED; break;
+	default: m_tFilePath = IMG_SERIAL_CAR_YELLOW; break; //Yellow cars
 	}
 
 	if (type >= TypeVehicle::BlackCar)
 	{
-		_stFilePath = __String::createWithFormat(_stFilePath.c_str(), 1)->getCString();
+		m_tFilePath = __String::createWithFormat(m_tFilePath.c_str(), 1)->getCString();
 	}
 
-	this->initWithFile(_stFilePath);
+	this->initWithFile(m_tFilePath);
 	this->setPosition(pos);
 
 	return true;
