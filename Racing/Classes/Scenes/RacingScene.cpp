@@ -6,6 +6,11 @@
 
 USING_NS_CC;
 
+#define NUM_ROAD_FULL_SCREEN				12
+#define VELOCITY_CAR						100
+#define TURN_RATE							3 //degree/frame
+#define PIXEL_FIX							2
+
 Scene* Racing::createScene()
 {
     // 'scene' is an autorelease object
@@ -103,6 +108,11 @@ void Racing::onTouchEnded(Touch *touch, Event *unused_event)
 
 }
 
+void Racing::onTouchCancelled(Touch *touch, Event *unused_event)
+{
+	onTouchMoved(touch, unused_event);
+}
+
 void Racing::onAcceleration(Acceleration* acc, Event* event)
 {
 	SET_MIN_MAX(-1, acc->x, 1);
@@ -124,6 +134,10 @@ void Racing::updateRoads(float dt)
 		if (0 >= p->getPositionY() + _sizeTilesRoad.height*0.5f )
 		{
 			p->setPositionY(_fYHightest- PIXEL_FIX);
+			if (p->getIsBegin())
+			{
+				p->setIsBegin(false);
+			}
 		}		
 	}	
 }
