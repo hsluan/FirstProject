@@ -22,7 +22,7 @@ $RECYCLE.BIN/
 *.sdf
 
 # Directories
-cocos2d
+*.suo
 .vs
 Debug.*
 
