@@ -87,6 +87,8 @@
 		F1E5F6AA1CFC919D00CC6EA0 /* Objects in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A11CFC919D00CC6EA0 /* Objects */; };
 		F1E5F6AB1CFC919D00CC6EA0 /* Tiles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A21CFC919D00CC6EA0 /* Tiles */; };
 		F1E5F6AC1CFC919D00CC6EA0 /* Tiles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A21CFC919D00CC6EA0 /* Tiles */; };
+		F1E5F6B01CFC9DBC00CC6EA0 /* CAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6AE1CFC9DBC00CC6EA0 /* CAccelerometer.cpp */; };
+		F1E5F6B11CFC9DBC00CC6EA0 /* CAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6AE1CFC9DBC00CC6EA0 /* CAccelerometer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +198,8 @@
 		F1E5F6A01CFC919D00CC6EA0 /* Motorcycles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Motorcycles; sourceTree = "<group>"; };
 		F1E5F6A11CFC919D00CC6EA0 /* Objects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Objects; sourceTree = "<group>"; };
 		F1E5F6A21CFC919D00CC6EA0 /* Tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tiles; sourceTree = "<group>"; };
+		F1E5F6AE1CFC9DBC00CC6EA0 /* CAccelerometer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAccelerometer.cpp; path = GameObjects/CAccelerometer.cpp; sourceTree = "<group>"; };
+		F1E5F6AF1CFC9DBC00CC6EA0 /* CAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAccelerometer.h; path = GameObjects/CAccelerometer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +400,8 @@
 		F1A5C2721CF547DF0074E098 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				F1E5F6AE1CFC9DBC00CC6EA0 /* CAccelerometer.cpp */,
+				F1E5F6AF1CFC9DBC00CC6EA0 /* CAccelerometer.h */,
 				F1E5F6911CFC916D00CC6EA0 /* CCamera.cpp */,
 				F1E5F6921CFC916D00CC6EA0 /* CCamera.h */,
 				F1E5F6931CFC916D00CC6EA0 /* RoadSegment.cpp */,
@@ -577,6 +583,7 @@
 				F1A5C2781CF548A80074E098 /* Vehicle.cpp in Sources */,
 				F1A5C2771CF548A80074E098 /* Road.cpp in Sources */,
 				F1E5F6961CFC916D00CC6EA0 /* RoadSegment.cpp in Sources */,
+				F1E5F6B01CFC9DBC00CC6EA0 /* CAccelerometer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1E5F6981CFC917400CC6EA0 /* CCamera.cpp in Sources */,
+				F1E5F6B11CFC9DBC00CC6EA0 /* CAccelerometer.cpp in Sources */,
 				F1E5F6991CFC917400CC6EA0 /* RoadSegment.cpp in Sources */,
 				F1E5F69B1CFC917400CC6EA0 /* Vehicle.cpp in Sources */,
 				F1E5F6971CFC917400CC6EA0 /* RacingScene.cpp in Sources */,
