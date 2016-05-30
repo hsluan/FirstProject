@@ -41,11 +41,11 @@ bool RoadSegment::init()
 	Size screenSize = Director::getInstance()->getVisibleSize();
 	int indexFirstLane	= NUM_FIRST_ROAD;
 	int indexSecondLane	= NUM_MIDm_roads;
-	int indexFourthLane = NUM_FOURTHm_roads;
+	int indexFourthLane = NUM_FOURTH_ROADS;
 	if (m_isBegin)
 	{
 		indexFirstLane	= NUM_BEGIN_FIRST_ROAD;
-		indexSecondLane = NUM_BEGIN_MIDm_roads;
+		indexSecondLane = NUM_BEGIN_MID_ROAD;
 		indexFourthLane = NUM_BEGIN_FOURTH_ROAD;
 	}
 
@@ -90,9 +90,20 @@ bool RoadSegment::init()
 	return true;
 }
 
-void RoadSegment::changeSpriteFrame(int indexImage)
+void RoadSegment::changeSpriteFrame(int firstIndex, int midIndex, int fourthIndex)
 {	
-	std::string temp = __String::createWithFormat(m_stFilePath.c_str(), indexImage)->getCString();
+	std::string stTemp = __String::createWithFormat(m_stFilePath.c_str(), firstIndex)->getCString();
+	SpriteFrame* spFrame = SpriteFrame::create(stTemp, m_firstLane->getBoundingBox());
+	m_firstLane->setSpriteFrame(spFrame);
+	
+	stTemp = __String::createWithFormat(m_stFilePath.c_str(), midIndex)->getCString();
+	spFrame = SpriteFrame::create(stTemp, m_secondLane->getBoundingBox());
+	m_secondLane->setSpriteFrame(spFrame);
+	m_thirdLane->setSpriteFrame(spFrame);
+
+	stTemp = __String::createWithFormat(m_stFilePath.c_str(), fourthIndex)->getCString();
+	spFrame = SpriteFrame::create(stTemp, m_fourthLane->getBoundingBox());
+	m_fourthLane->setSpriteFrame(spFrame);
 	
 }
 

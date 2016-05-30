@@ -71,10 +71,16 @@ void Road::update(float dt)
 
 void Road::setFocus(Vec2 offset)
 {
+	
     m_hero->setPosition(m_hero->getPosition() + offset);
     for (int i = 0; i < m_roads.size(); i++)
     {
         m_roads[i]->setPosition(m_roads[i]->getPosition() + offset);
+		if (0 > m_roads[i]->getPositionY() + m_sizeRoadSegment.height*0.5f)
+		{
+			m_roads[i]->setPositionY(m_fYHightest - PIXEL_FIX);
+		}
+		
     }
 }
 

@@ -35,7 +35,7 @@ public:
 	~RoadSegment();
 	static RoadSegment* create(TypeRoad type, bool isBegin, const cocos2d::Vec2& pos);
 	bool init();	
-	void changeSpriteFrame(int indexImage);
+	void changeSpriteFrame(int firstIndex, int midIndex, int fourthIndex);
 	virtual void update(float dt);
 };
 
