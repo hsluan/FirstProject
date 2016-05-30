@@ -70,6 +70,23 @@
 		F1A5C2771CF548A80074E098 /* Road.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2731CF548A80074E098 /* Road.cpp */; };
 		F1A5C2781CF548A80074E098 /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2751CF548A80074E098 /* Vehicle.cpp */; };
 		F1A5C27C1CF548C00074E098 /* RacingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C27A1CF548C00074E098 /* RacingScene.cpp */; };
+		F1E5F6951CFC916D00CC6EA0 /* CCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6911CFC916D00CC6EA0 /* CCamera.cpp */; };
+		F1E5F6961CFC916D00CC6EA0 /* RoadSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6931CFC916D00CC6EA0 /* RoadSegment.cpp */; };
+		F1E5F6971CFC917400CC6EA0 /* RacingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C27A1CF548C00074E098 /* RacingScene.cpp */; };
+		F1E5F6981CFC917400CC6EA0 /* CCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6911CFC916D00CC6EA0 /* CCamera.cpp */; };
+		F1E5F6991CFC917400CC6EA0 /* RoadSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E5F6931CFC916D00CC6EA0 /* RoadSegment.cpp */; };
+		F1E5F69A1CFC917400CC6EA0 /* Road.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2731CF548A80074E098 /* Road.cpp */; };
+		F1E5F69B1CFC917400CC6EA0 /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2751CF548A80074E098 /* Vehicle.cpp */; };
+		F1E5F6A31CFC919D00CC6EA0 /* Cars in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F69E1CFC919D00CC6EA0 /* Cars */; };
+		F1E5F6A41CFC919D00CC6EA0 /* Cars in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F69E1CFC919D00CC6EA0 /* Cars */; };
+		F1E5F6A51CFC919D00CC6EA0 /* Characters in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F69F1CFC919D00CC6EA0 /* Characters */; };
+		F1E5F6A61CFC919D00CC6EA0 /* Characters in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F69F1CFC919D00CC6EA0 /* Characters */; };
+		F1E5F6A71CFC919D00CC6EA0 /* Motorcycles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A01CFC919D00CC6EA0 /* Motorcycles */; };
+		F1E5F6A81CFC919D00CC6EA0 /* Motorcycles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A01CFC919D00CC6EA0 /* Motorcycles */; };
+		F1E5F6A91CFC919D00CC6EA0 /* Objects in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A11CFC919D00CC6EA0 /* Objects */; };
+		F1E5F6AA1CFC919D00CC6EA0 /* Objects in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A11CFC919D00CC6EA0 /* Objects */; };
+		F1E5F6AB1CFC919D00CC6EA0 /* Tiles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A21CFC919D00CC6EA0 /* Tiles */; };
+		F1E5F6AC1CFC919D00CC6EA0 /* Tiles in Resources */ = {isa = PBXBuildFile; fileRef = F1E5F6A21CFC919D00CC6EA0 /* Tiles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +185,17 @@
 		F1A5C2761CF548A80074E098 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vehicle.h; path = GameObjects/Vehicle.h; sourceTree = "<group>"; };
 		F1A5C27A1CF548C00074E098 /* RacingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RacingScene.cpp; path = Scenes/RacingScene.cpp; sourceTree = "<group>"; };
 		F1A5C27B1CF548C00074E098 /* RacingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RacingScene.h; path = Scenes/RacingScene.h; sourceTree = "<group>"; };
+		F1E5F6911CFC916D00CC6EA0 /* CCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCamera.cpp; path = GameObjects/CCamera.cpp; sourceTree = "<group>"; };
+		F1E5F6921CFC916D00CC6EA0 /* CCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCamera.h; path = GameObjects/CCamera.h; sourceTree = "<group>"; };
+		F1E5F6931CFC916D00CC6EA0 /* RoadSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RoadSegment.cpp; path = GameObjects/RoadSegment.cpp; sourceTree = "<group>"; };
+		F1E5F6941CFC916D00CC6EA0 /* RoadSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoadSegment.h; path = GameObjects/RoadSegment.h; sourceTree = "<group>"; };
+		F1E5F69C1CFC918100CC6EA0 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		F1E5F69D1CFC918100CC6EA0 /* GameDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDefine.h; sourceTree = "<group>"; };
+		F1E5F69E1CFC919D00CC6EA0 /* Cars */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cars; sourceTree = "<group>"; };
+		F1E5F69F1CFC919D00CC6EA0 /* Characters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Characters; sourceTree = "<group>"; };
+		F1E5F6A01CFC919D00CC6EA0 /* Motorcycles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Motorcycles; sourceTree = "<group>"; };
+		F1E5F6A11CFC919D00CC6EA0 /* Objects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Objects; sourceTree = "<group>"; };
+		F1E5F6A21CFC919D00CC6EA0 /* Tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tiles; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +317,11 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F1E5F69E1CFC919D00CC6EA0 /* Cars */,
+				F1E5F69F1CFC919D00CC6EA0 /* Characters */,
+				F1E5F6A01CFC919D00CC6EA0 /* Motorcycles */,
+				F1E5F6A11CFC919D00CC6EA0 /* Objects */,
+				F1E5F6A21CFC919D00CC6EA0 /* Tiles */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -302,6 +335,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F1E5F69C1CFC918100CC6EA0 /* const.h */,
+				F1E5F69D1CFC918100CC6EA0 /* GameDefine.h */,
 				F1A5C2791CF548B20074E098 /* Scenes */,
 				F1A5C2721CF547DF0074E098 /* GameObjects */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
@@ -361,6 +396,10 @@
 		F1A5C2721CF547DF0074E098 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				F1E5F6911CFC916D00CC6EA0 /* CCamera.cpp */,
+				F1E5F6921CFC916D00CC6EA0 /* CCamera.h */,
+				F1E5F6931CFC916D00CC6EA0 /* RoadSegment.cpp */,
+				F1E5F6941CFC916D00CC6EA0 /* RoadSegment.h */,
 				F1A5C2731CF548A80074E098 /* Road.cpp */,
 				F1A5C2741CF548A80074E098 /* Road.h */,
 				F1A5C2751CF548A80074E098 /* Vehicle.cpp */,
@@ -476,8 +515,10 @@
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				F1E5F6A51CFC919D00CC6EA0 /* Characters in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				F1E5F6A31CFC919D00CC6EA0 /* Cars in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
@@ -489,12 +530,15 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				F1E5F6A91CFC919D00CC6EA0 /* Objects in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				F1E5F6A71CFC919D00CC6EA0 /* Motorcycles in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				F1E5F6AB1CFC919D00CC6EA0 /* Tiles in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,11 +547,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E5F6AC1CFC919D00CC6EA0 /* Tiles in Resources */,
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
+				F1E5F6AA1CFC919D00CC6EA0 /* Objects in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				F1E5F6A61CFC919D00CC6EA0 /* Characters in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
+				F1E5F6A81CFC919D00CC6EA0 /* Motorcycles in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				F1E5F6A41CFC919D00CC6EA0 /* Cars in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E5F6951CFC916D00CC6EA0 /* CCamera.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F1A5C27C1CF548C00074E098 /* RacingScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -526,6 +576,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F1A5C2781CF548A80074E098 /* Vehicle.cpp in Sources */,
 				F1A5C2771CF548A80074E098 /* Road.cpp in Sources */,
+				F1E5F6961CFC916D00CC6EA0 /* RoadSegment.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +584,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E5F6981CFC917400CC6EA0 /* CCamera.cpp in Sources */,
+				F1E5F6991CFC917400CC6EA0 /* RoadSegment.cpp in Sources */,
+				F1E5F69B1CFC917400CC6EA0 /* Vehicle.cpp in Sources */,
+				F1E5F6971CFC917400CC6EA0 /* RacingScene.cpp in Sources */,
+				F1E5F69A1CFC917400CC6EA0 /* Road.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
