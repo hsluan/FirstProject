@@ -10,6 +10,7 @@ class CCamera : public cocos2d::Node
 	CCamera();
 	~CCamera();
 	Road* m_road;
+    cocos2d::Vec2 m_focusPoint;
 
 public:
 	static CCamera* create();

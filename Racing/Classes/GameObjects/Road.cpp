@@ -69,3 +69,12 @@ void Road::update(float dt)
 	m_hero->update(dt);
 }
 
+void Road::setFocus(Vec2 offset)
+{
+    m_hero->setPosition(m_hero->getPosition() + offset);
+    for (int i = 0; i < m_roads.size(); i++)
+    {
+        m_roads[i]->setPosition(m_roads[i]->getPosition() + offset);
+    }
+}
+
