@@ -95,7 +95,7 @@ void Racing::onAcceleration(Acceleration* acc, Event* event)
 
 void Racing::update(float dt)
 {
-
+    m_pCCamera->update(dt);
 }
 
 void Racing::updateRoads(float dt)
