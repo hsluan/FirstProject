@@ -4,6 +4,7 @@
 #include "RoadSegment.h"
 #include "CCamera.h"
 #include "GameDefine.h"
+#include "CController.h"
 
 USING_NS_CC;
 
@@ -62,29 +63,23 @@ void Racing::createUI()
 
 bool Racing::onTouchBegan(Touch *touch, Event *unused_event)
 {
-	//auto location	= touch->getLocation();
-	//Vec2 vectorFromHeroToTouch = location - m_hero->getPosition();
-	//float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	//m_hero->setRotation(fAngle);//setTargetAngle(fAngle);
+    CController::GetInstance()->onTouchBegan(touch->getLocation());
 	return true;
 }
 
 void Racing::onTouchMoved(Touch *touch, Event *unused_event)
 {
-	/*auto location = touch->getLocation();
-	Vec2 vectorFromHeroToTouch = location - m_hero->getPosition();
-	float fAngle = CC_RADIANS_TO_DEGREES(-vectorFromHeroToTouch.getAngle());
-	m_hero->setRotation(fAngle);*/
+    CController::GetInstance()->onTouchMoved(touch->getLocation());
 }
 
 void Racing::onTouchEnded(Touch *touch, Event *unused_event)
 {
-
+    CController::GetInstance()->onTouchEnded(touch->getLocation());
 }
 
 void Racing::onTouchCancelled(Touch *touch, Event *unused_event)
 {
-	onTouchMoved(touch, unused_event);
+	onTouchEnded(touch, unused_event);
 }
 
 void Racing::onAcceleration(Acceleration* acc, Event* event)

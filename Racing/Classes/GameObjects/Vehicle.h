@@ -20,8 +20,8 @@ enum class TypeVehicle
 class Vehicle : public cocos2d::Sprite
 {
 	CC_SYNTHESIZE(TypeVehicle, m_type, Type);
-	cocos2d::Vec2 m_vel;
-	cocos2d::Vec2 m_Acc;
+	float m_vel;
+	float m_angle;
 	std::string m_tFilePath;
 public:
 	static Vehicle* create(TypeVehicle type, const cocos2d::Vec2& pos);
