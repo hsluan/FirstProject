@@ -1,8 +1,11 @@
 #include "Vehicle.h"
+#include "CController.h"
 #include "GameDefine.h"
 #include "const.h"
 
 USING_NS_CC;
+
+#define ASSET_OFFSET        90.0f
 
 Vehicle* Vehicle::create( TypeVehicle type, const Vec2& pos )
 {
@@ -19,9 +22,9 @@ Vehicle* Vehicle::create( TypeVehicle type, const Vec2& pos )
 bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 {
     //init value
-    m_vel			= Vec2(0.0f, 60);
+    m_vel			= 60.0f;
+    m_angle         = 90.0f;
     m_type			= type;
-    m_Acc			= Vec2::ZERO;
     
     switch (type)
     {
@@ -50,9 +53,14 @@ bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 
 void Vehicle::update(float dt)
 {
+    m_angle += CController::GetInstance()->getSteering();
+    this->setRotation(m_angle - ASSET_OFFSET);
+    
     auto posCurrent		= getPosition();
-    posCurrent.x = posCurrent.x + m_vel.x * dt;
-    posCurrent.y = posCurrent.y + m_vel.y * dt;
+    float angle = m_angle * 3.14 / 180;
+    log("angle: %f x: %f y: %f", m_angle, std::cos(angle), std::sin(angle));
+    posCurrent.x = posCurrent.x + m_vel * std::cos(angle) * dt;
+    posCurrent.y = posCurrent.y + m_vel * std::sin(angle) * dt;
     
     this->setPosition(posCurrent);
 }
