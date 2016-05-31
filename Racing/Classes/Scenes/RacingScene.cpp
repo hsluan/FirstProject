@@ -4,6 +4,7 @@
 #include "RoadSegment.h"
 #include "CCamera.h"
 #include "GameDefine.h"
+#include "CController.h"
 
 USING_NS_CC;
 
