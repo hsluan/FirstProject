@@ -2,7 +2,6 @@
 #define _ROAD_H_
 
 #include "cocos2d.h"
-#include "Vehicle.h"
 
 class Vehicle;
 class RoadSegment;

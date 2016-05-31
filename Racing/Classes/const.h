@@ -7,9 +7,9 @@
 
 #define NUM_BEGIN_FIRST_ROAD				69
 #define NUM_FIRST_ROAD						21
-#define NUM_BEGIN_MIDm_roads					70
+#define NUM_BEGIN_MID_ROAD					70
 #define NUM_MIDm_roads						22
 #define NUM_BEGIN_FOURTH_ROAD				71
-#define NUM_FOURTHm_roads					23
+#define NUM_FOURTH_ROADS					23
 
 #endif // __CONST_H_
