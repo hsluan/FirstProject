@@ -71,7 +71,6 @@ void Road::update(float dt)
 
 void Road::setFocus(Vec2 offset)
 {
-	
     m_hero->setPosition(m_hero->getPosition() + offset);
     for (int i = 0; i < m_roads.size(); i++)
     {
@@ -80,7 +79,17 @@ void Road::setFocus(Vec2 offset)
 		{
 			m_roads[i]->setPositionY(m_fYHightest - PIXEL_FIX);
 		}
-		
+    }
+    
+    float rotate = -m_hero->getRotation();
+    log("%f", rotate);
+    if(rotate != this->getRotation())
+    {
+        Vec2 pivot = m_hero->getPosition();
+        Vec2 pos = this->getPosition();
+        pos.rotate(pivot, rotate);
+        this->setPosition(pos);
+        this->setRotation(rotate);
     }
 }
 

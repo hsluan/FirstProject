@@ -43,7 +43,12 @@ bool CCamera::init()
 
 void CCamera::update(float dt)
 {
-    Vec2 offset = m_focusPoint - m_road->getPlayer()->getPosition();
-    m_road->setFocus(offset);
+    Vec2 playerWorldPos = m_road->convertToWorldSpace(m_road->getPlayer()->getPosition());
+    Vec2 offset = m_focusPoint - playerWorldPos;
+    
+    m_road->setPosition(m_road->getPosition() + offset);
+    float rotate = -m_road->getPlayer()->getRotation();
+    m_road->setRotation(rotate);
+    
     m_road->update(dt);
 }
