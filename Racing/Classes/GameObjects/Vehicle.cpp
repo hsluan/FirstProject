@@ -54,11 +54,10 @@ bool Vehicle::init( TypeVehicle type, const Vec2& pos)
 void Vehicle::update(float dt)
 {
     m_angle += CController::GetInstance()->getSteering();
-    this->setRotation(m_angle - ASSET_OFFSET);
+    this->setRotation(-m_angle + ASSET_OFFSET);
     
     auto posCurrent		= getPosition();
     float angle = m_angle * 3.14 / 180;
-    log("angle: %f x: %f y: %f", m_angle, std::cos(angle), std::sin(angle));
     posCurrent.x = posCurrent.x + m_vel * std::cos(angle) * dt;
     posCurrent.y = posCurrent.y + m_vel * std::sin(angle) * dt;
     
